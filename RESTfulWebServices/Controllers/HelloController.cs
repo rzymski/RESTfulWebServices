@@ -3,7 +3,7 @@
 namespace RESTfulWebServices.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("rest/api/[controller]")]
     public class HelloController : ControllerBase
     {
         private readonly ILogger<HelloController> _logger;
@@ -25,13 +25,13 @@ namespace RESTfulWebServices.Controllers
             return "Witaj echo";
         }
 
-        [HttpGet("echo2/{message}")]
-        public string Echo2(string message)
+        [HttpGet("echo/{message}")]
+        public string Echo(string message)
         {
             return $"Witaj echo: {message}";
         }
 
-        [HttpGet("messages")]
+        [HttpGet("messages/json")]
         public ActionResult<List<Message>> Messages()
         {
             var messages = Message.getSampleMessages();
