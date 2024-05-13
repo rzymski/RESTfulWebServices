@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using DB.Entities;
+using DB.Repositories;
+using DB.Repositories.Interfaces;
 
 namespace RESTfulWebServices.Controllers
 {
@@ -6,11 +9,14 @@ namespace RESTfulWebServices.Controllers
     [Route("rest/api/[controller]")]
     public class HelloController : ControllerBase
     {
-        private readonly ILogger<HelloController> _logger;
+        private readonly ILogger<HelloController> logger;
+        private readonly IMessageRepository messageRepository;
 
-        public HelloController(ILogger<HelloController> logger)
+        public HelloController(ILogger<HelloController> logger, IMessageRepository messageRepository)
         {
-            _logger = logger;
+            this.logger = logger;
+            this.messageRepository = messageRepository;
+
         }
 
         [HttpGet("")]
@@ -34,14 +40,14 @@ namespace RESTfulWebServices.Controllers
         [HttpGet("messages/json")]
         public ActionResult<List<Message>> Messages()
         {
-            var messages = Message.getSampleMessages();
+            var messages = messageRepository.GetAll();
             return Ok(messages);
         }
 
         [HttpGet("messages/xml")]
         public ActionResult<List<Message>> MessagesAsXml()
         {
-            var messages = Message.getSampleMessages();
+            var messages = messageRepository.GetAll();
             var result = new ObjectResult(messages);
             result.ContentTypes.Add("application/xml");
             return result;
