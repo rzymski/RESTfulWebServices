@@ -15,6 +15,7 @@ namespace DB
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Message>().ToTable("Message");
+            modelBuilder.Entity<Message>().Property(p => p.Id).UseIdentityColumn(seed: 1, increment: 1);
         }
     }
 }

@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
-builder.Services.AddScoped(typeof(IBaseService<,>), typeof(BaseService<,>));
+builder.Services.AddScoped(typeof(IBaseService<,,>), typeof(BaseService<,,>));
 builder.Services.AddScoped<IMessageService, MessageService>();
 
 builder.Services.AddDbContext<MyDBContext>(options =>
@@ -22,8 +22,12 @@ builder.Services.AddDbContext<MyDBContext>(options =>
 // Dodanie obs³ugi XML
 builder.Services.AddControllers().AddXmlSerializerFormatters();
 
+// Dodanie http context accessor
+builder.Services.AddHttpContextAccessor();
+
 // Add services to the container.
 builder.Services.AddControllers();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

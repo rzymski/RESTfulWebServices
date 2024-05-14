@@ -10,12 +10,12 @@ namespace RESTfulWebServices.Controllers
     public class HelloController : ControllerBase
     {
         private readonly ILogger<HelloController> logger;
-        private readonly IMessageService messageRepository;
+        private readonly IMessageService messageService;
 
-        public HelloController(ILogger<HelloController> logger, IMessageService messageRepository)
+        public HelloController(ILogger<HelloController> logger, IMessageService messageService)
         {
             this.logger = logger;
-            this.messageRepository = messageRepository;
+            this.messageService = messageService;
 
         }
 
@@ -40,14 +40,14 @@ namespace RESTfulWebServices.Controllers
         [HttpGet("messages/json")]
         public ActionResult<List<Message>> Messages()
         {
-            var messages = messageRepository.GetAllDtoList();
+            var messages = messageService.GetAllDtoList();
             return Ok(messages);
         }
 
         [HttpGet("messages/xml")]
         public ActionResult<List<Message>> MessagesAsXml()
         {
-            var messages = messageRepository.GetAllDtoList();
+            var messages = messageService.GetAllDtoList();
             var result = new ObjectResult(messages);
             result.ContentTypes.Add("application/xml");
             return result;

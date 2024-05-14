@@ -1,14 +1,19 @@
-﻿namespace DB.Dto.Message
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DB.Dto.Message
 {
-    public class MessageDto : BaseDto
+    public class MessageAddDto
     {
+        [Required]
+        [StringLength(50)]
         public string? Author { get; set; }
+        [Required]
         public string? Content { get; set; }
         public int Priority { get; set; }
         public DateTime Created { get; set; }
 
-        public MessageDto() { }
-        public MessageDto(int id, string? author, string? content, DateTime created, int priority) : base(id)
+        public MessageAddDto() { }
+        public MessageAddDto(string? author, string? content, DateTime created, int priority)
         {
             Author = author;
             Content = content;
@@ -18,7 +23,7 @@
 
         public override string ToString()
         {
-            return $"MessageDto {base.ToString()}";
+            return $"MessageAddDto {base.ToString()}";
         }
     }
 }

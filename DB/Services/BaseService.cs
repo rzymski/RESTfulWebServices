@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace DB.Services.Interfaces
 {
-    public class BaseService<T, TDto> : IBaseService<T, TDto> where T : BaseEntity where TDto : BaseDto, new()
+    public class BaseService<T, TDto, TAddEditDto> : IBaseService<T, TDto, TAddEditDto> where T : BaseEntity where TDto : BaseDto, new() where TAddEditDto : class
     {
-        private readonly IBaseRepository<T> repository;
+        protected readonly IBaseRepository<T> repository;
 
         public BaseService(IBaseRepository<T> repository)
         {
@@ -29,20 +29,20 @@ namespace DB.Services.Interfaces
             return results;
         }
 
-        public int Add(TDto item)
+        public int Add(TAddEditDto item)
         {
-            var entity = MapToEntity(item); // Mapowanie DTO na encję
+            var entity = MapAddEditDtoToEntity(item); // Mapowanie DTO na encję
             repository.Add(entity);
             return entity.Id;
         }
 
-        public bool Update(int id, TDto item)
+        public bool Update(int id, TAddEditDto item)
         {
             var existingItem = repository.GetById(id);
             if (existingItem == null)
                 return false;
 
-            MapToEntity(item, existingItem); // Aktualizacja istniejącej encji na podstawie DTO
+            MapAddEditDtoToEntity(item, existingItem); // Aktualizacja istniejącej encji na podstawie DTO
             repository.Update(existingItem);
             return true;
         }
@@ -66,11 +66,10 @@ namespace DB.Services.Interfaces
         }
 
         // Metoda do mapowania DTO na encję
-        protected virtual T MapToEntity(TDto dto, T entity = null)
+        protected virtual T MapAddEditDtoToEntity(TAddEditDto addEditDto, T entity = null)
         {
             if (entity == null)
                 entity = Activator.CreateInstance<T>(); // Utwórz nową instancję encji, jeśli nie została dostarczona
-            entity.Id = dto.Id;
             return entity;
         }
     }
