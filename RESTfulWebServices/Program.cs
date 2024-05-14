@@ -1,13 +1,16 @@
 using DB;
-using DB.Entities;
 using DB.Repositories;
 using DB.Repositories.Interfaces;
+using DB.Services;
+using DB.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+builder.Services.AddScoped(typeof(IBaseService<,>), typeof(BaseService<,>));
+builder.Services.AddScoped<IMessageService, MessageService>();
 
 builder.Services.AddDbContext<MyDBContext>(options =>
 {
