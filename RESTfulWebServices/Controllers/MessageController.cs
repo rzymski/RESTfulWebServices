@@ -52,7 +52,7 @@ namespace RESTfulWebServices.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult Delete([FromRoute] int id) 
+        public ActionResult Delete([FromRoute] int id)
         {
             var result = messageService.Delete(id);
             if (result)
@@ -86,19 +86,31 @@ namespace RESTfulWebServices.Controllers
             return userAgent;
         }
 
-        //[HttpGet]
-        //public ActionResult<string> GetInfo()
-        //{
-        //    // Przykładowe uzyskiwanie parametrów zapytania
-        //    string queryParamValue = HttpContext.Request.Query["paramName"];
+        [HttpGet("{*path}")]
+        public IActionResult GetMatrixParams(string path)
+        {
+            var matrixParams = ParseMatrixParams(path);
+            return Ok(matrixParams);
+        }
 
-        //    // Przykładowe uzyskiwanie nagłówka
-        //    string headerValue = HttpContext.Request.Headers["HeaderName"];
+        private Dictionary<string, string> ParseMatrixParams(string path)
+        {
+            var matrixParams = new Dictionary<string, string>();
 
-        //    // Przykładowe uzyskiwanie innych informacji kontekstowych
-        //    string absolutePath = HttpContext.Request.Path;
+            // Sprawdź, czy ścieżka zawiera parametry macierzyste
+            var parts = path.Split(';');
+            foreach (var part in parts.Skip(1)) // Pomijamy pierwszy segment ścieżki, który jest samą nazwą kontrolera
+            {
+                var keyValue = part.Split('=');
+                if (keyValue.Length == 2)
+                {
+                    var key = keyValue[0];
+                    var value = keyValue[1];
+                    matrixParams[key] = value;
+                }
+            }
 
-        //    return Ok($"QueryParam: {queryParamValue}, HeaderValue: {headerValue}, AbsolutePath: {absolutePath}");
-        //}
+            return matrixParams;
+        }
     }
 }

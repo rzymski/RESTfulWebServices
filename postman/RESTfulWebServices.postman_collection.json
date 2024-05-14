@@ -1,0 +1,917 @@
+{
+	"info": {
+		"_postman_id": "da2cd187-e34f-4db9-a7bc-a97520c644e9",
+		"name": "RESTfulWebServices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25184886"
+	},
+	"item": [
+		{
+			"name": "rest",
+			"item": [
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "Hello",
+							"item": [
+								{
+									"name": "echo",
+									"item": [
+										{
+											"name": "{message}",
+											"item": [
+												{
+													"name": "/rest/api/Hello/echo/:message",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/rest/api/Hello/echo/:message",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"rest",
+																"api",
+																"Hello",
+																"echo",
+																":message"
+															],
+															"variable": [
+																{
+																	"key": "message",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/rest/api/Hello/echo/:message",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"rest",
+																		"api",
+																		"Hello",
+																		"echo",
+																		":message"
+																	],
+																	"variable": [
+																		{
+																			"key": "message"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "<string>"
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "/rest/api/Hello/echo",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/rest/api/Hello/echo",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"rest",
+														"api",
+														"Hello",
+														"echo"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/rest/api/Hello/echo",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"rest",
+																"api",
+																"Hello",
+																"echo"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "messages",
+									"item": [
+										{
+											"name": "json",
+											"item": [
+												{
+													"name": "/rest/api/Hello/messages/json",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/rest/api/Hello/messages/json",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"rest",
+																"api",
+																"Hello",
+																"messages",
+																"json"
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/rest/api/Hello/messages/json",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"rest",
+																		"api",
+																		"Hello",
+																		"messages",
+																		"json"
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"author\": \"<string>\",\n    \"content\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"author\": \"<string>\",\n    \"content\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  }\n]"
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "xml",
+											"item": [
+												{
+													"name": "/rest/api/Hello/messages/xml",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/rest/api/Hello/messages/xml",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"rest",
+																"api",
+																"Hello",
+																"messages",
+																"xml"
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/rest/api/Hello/messages/xml",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"rest",
+																		"api",
+																		"Hello",
+																		"messages",
+																		"xml"
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"author\": \"<string>\",\n    \"content\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"author\": \"<string>\",\n    \"content\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  }\n]"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "/rest/api/Hello",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/rest/api/Hello",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"rest",
+												"api",
+												"Hello"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/rest/api/Hello",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"rest",
+														"api",
+														"Hello"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "GetOne",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/Message/GetOne/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Message/GetOne/3",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Message",
+												"GetOne",
+												"3"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/Message/GetOne/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"Message",
+														"GetOne",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "GetList",
+					"item": [
+						{
+							"name": "/Message/GetList",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Message/GetList",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Message",
+										"GetList"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/Message/GetList",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Message",
+												"GetList"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"author\": \"<string>\",\n    \"content\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"author\": \"<string>\",\n    \"content\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Add",
+					"item": [
+						{
+							"name": "/Message/Add",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const messageId = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"\r",
+											"    console.log(\"messageId = \"+messageId);\r",
+											"    pm.environment.set(\"messageId\", messageId);\r",
+											"\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"author\": \"Test2\",\n  \"content\": \"test2\",\n  \"priority\": \"1\",\n  \"created\": \"2024-05-14T02:41:10.220Z\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/Message/Add",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Message",
+										"Add"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"author\": \"<string>\",\n  \"content\": \"<string>\",\n  \"created\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Message/Add",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Message",
+												"Add"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/Message/Update/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"author\": \"TestZmieniony\",\n  \"content\": \"test zmiana {{messageId}}\",\n  \"priority\": 2,\n  \"created\": \"2025-05-14T02:41:10Z\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/Message/Update/{{messageId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Message",
+												"Update",
+												"{{messageId}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"author\": \"<string>\",\n  \"content\": \"<string>\",\n  \"created\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/Message/Update/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"Message",
+														"Update",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/Message/Delete/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/Message/Delete/{{messageId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"Message",
+												"Delete",
+												"{{messageId}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/Message/Delete/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"Message",
+														"Delete",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "GetAbsolutePath",
+					"item": [
+						{
+							"name": "/Message/GetAbsolutePath",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/Message/GetAbsolutePath",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Message",
+										"GetAbsolutePath"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetUserAgent",
+					"item": [
+						{
+							"name": "/Message/GetUserAgent",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/Message/GetUserAgent",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Message",
+										"GetUserAgent"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetHeaderValues",
+					"item": [
+						{
+							"name": "/Message/GetHeaderValues",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "username",
+										"value": "piotr",
+										"description": "nazwa uzytkownika",
+										"type": "text"
+									},
+									{
+										"key": "password",
+										"value": "admin",
+										"description": "haslo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Message/GetHeaderValues",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Message",
+										"GetHeaderValues"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetByValues",
+					"item": [
+						{
+							"name": "/Message/GetByValues",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "username",
+										"value": "piotr",
+										"description": "nazwa uzytkownika",
+										"type": "text"
+									},
+									{
+										"key": "password",
+										"value": "admin",
+										"description": "haslo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Message/GetByValues?author=Adam&content=Secret&priority=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Message",
+										"GetByValues"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "Adam"
+										},
+										{
+											"key": "content",
+											"value": "Secret"
+										},
+										{
+											"key": "priority",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GetMatrixParams",
+					"item": [
+						{
+							"name": "/Message/GetMatrixParams",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "username",
+										"value": "piotr",
+										"description": "nazwa uzytkownika",
+										"type": "text"
+									},
+									{
+										"key": "password",
+										"value": "admin",
+										"description": "haslo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/Message/GetMatrixParams/exampleParams;arg0=1;arg1=Kot;arg2=Pies;arg3=1950",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"Message",
+										"GetMatrixParams",
+										"exampleParams;arg0=1;arg1=Kot;arg2=Pies;arg3=1950"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
