@@ -12,6 +12,8 @@ namespace DB.Services
 
         protected override MessageDto MapToDto(Message entity)
         {
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity), "Entity cannot be null.");
             return new MessageDto
             {
                 Id = entity.Id,

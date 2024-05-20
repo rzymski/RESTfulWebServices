@@ -18,6 +18,8 @@ namespace DB.Services.Interfaces
         public TDto GetByIdDtoObject(int id)
         {
             var item = repository.GetById(id);
+            if (item == null)
+                return null;
             var result = MapToDto(item); // Mapowanie encji na DTO
             return result;
         }

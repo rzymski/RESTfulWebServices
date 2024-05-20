@@ -26,7 +26,10 @@ namespace RESTfulWebServices.Controllers
         [HttpGet("{id}")]
         public IActionResult GetOne([FromRoute] int id)
         {
-            return Ok(messageService.GetByIdDtoObject(id));
+            var result = messageService.GetByIdDtoObject(id);
+            if (result == null)
+                return NotFound(new { message = "Nie znaleziono rekordu o takim id." });
+            return Ok(result);
         }
 
         [HttpGet]
@@ -96,7 +99,6 @@ namespace RESTfulWebServices.Controllers
         private Dictionary<string, string> ParseMatrixParams(string path)
         {
             var matrixParams = new Dictionary<string, string>();
-
             // Sprawdź, czy ścieżka zawiera parametry macierzyste
             var parts = path.Split(';');
             foreach (var part in parts.Skip(1)) // Pomijamy pierwszy segment ścieżki, który jest samą nazwą kontrolera
@@ -109,7 +111,6 @@ namespace RESTfulWebServices.Controllers
                     matrixParams[key] = value;
                 }
             }
-
             return matrixParams;
         }
     }
