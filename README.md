@@ -31,25 +31,22 @@ ___
 <summary><h3>Utworzenie certifikatu ssl dla klienta w pythonie</h3></summary>
   Otwieramy <b>Windows Power shall jako admin</b><br>
 
-  Sprawdzamy klucz certifikatu z visual studio za pomocą:
+  Sprawdzamy klucz certifikatu z visual studio i zapisujemy certifakt do zmiennej:
   ```sh
-  dotnet dev-certs https --check
-  ```
-  
-  Zapisujemy certifakt do zmiennej ważne żeby podać prawidłwowy klucz:
-  ```sh
-  $cert = Get-ChildItem -Path Cert:\CurrentUser\My | Where-Object {$_.Thumbprint -eq "twoj41ZnakowyKLuczOdczytanyZPoprzedniegoPolecenia"}
+  $certInfo = dotnet dev-certs https --check
+  $certId = $certInfo | Select-String -Pattern "A valid certificate was found: ([A-F0-9]{40})" | ForEach-Object { $_.Matches[0].Groups[1].Value }
+  $cert = Get-ChildItem -Path Cert:\CurrentUser\My | Where-Object {$_.Thumbprint -eq $certId}
   ```
   
   Podajemy folder gdzie ma wyeksportować klucz i dowolne haslo :
   ```sh
   $path = "D:\pathToProject\pythonClient"
-  Export-PfxCertificate -Cert $cert -FilePath "$path\localhost.pfx" -Password (ConvertTo-SecureString -String "twojeDowolneHaslo" -Force -AsPlainText)
+  Export-PfxCertificate -Cert $cert -FilePath "$path\localhost.pfx" -Password (ConvertTo-SecureString -String twojeDowolneHaslo -Force -AsPlainText)
   ```
   
   Otwieramy openssl np. w <b>C:\Program Files\Git\usr\bin\openssl.exe</b>
   ```sh
   pkcs12 -in D:\pathToProject\pythonClient\localhost.pfx -out D:\pathToProject\pythonClient\certificate.pem -nodes
   ```
-  Po wpisaniu polecenia należy podać wcześniej wybrane hasło w tym przykładzie było to "twojeDowolneHaslo"
+  Po wpisaniu polecenia należy podać wcześniej wybrane hasło w tym przykładzie było to twojeDowolneHaslo
 </details>
