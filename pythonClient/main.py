@@ -33,7 +33,7 @@ class RestClient:
                 params=parameters,
                 data=data,  # Używany do wysyłania surowych danych
                 json=json,  # Używany do wysyłania danych jako JSON
-                verify=self.certificate,
+                verify=self.certificate
             )
             # RestClient.printRequest(requestResponse.request)  # Wyswietlanie danych wyslanego requesta
             requestResponse.raise_for_status()
@@ -55,8 +55,7 @@ class RestClient:
 
 
 if __name__ == "__main__":
-    client = RestClient("https://localhost:8080/Message")  # , certificate="localhost.pem"
-
+    client = RestClient("https://localhost:8080/Message", certificate="certificate.pem")
     # Get method
     response = client.service("GetList", "GET")
     # response = client.service("GetOne", "GET", pathParameter="1")
@@ -90,4 +89,8 @@ if __name__ == "__main__":
 
     # XML response
     # client = RestClient("https://localhost:8080/rest/api/Hello")
-    # response = client.service("messages", "get", pathParameter="xml", responseFormat="xml")
+    # response = client.service("messages", "get", pathParameter="xml", expectedResponseFormat="xml")
+
+
+# response = requests.get("https://localhost:8080/GetList", verify="D:/programowanie/C#/aplikacjeKonsolowe/rest/RESTfulWebServices/pythonClient/localhost.pem")
+# print(response)
