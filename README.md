@@ -29,13 +29,24 @@ ___
 
 <details>
 <summary><h3>Utworzenie certifikatu ssl dla klienta w pythonie</h3></summary>
-  Otwieramy <b>Windows Power shall jako admin</b><br>
+  Otwieramy <b>Windows Power shall jako admin</b><br><br>
 
   Sprawdzamy klucz certifikatu z visual studio i zapisujemy certifakt do zmiennej:
   ```sh
+  # Krok 1: Pobierz thumbprint certyfikatu
   $certInfo = dotnet dev-certs https --check
   $certId = $certInfo | Select-String -Pattern "A valid certificate was found: ([A-F0-9]{40})" | ForEach-Object { $_.Matches[0].Groups[1].Value }
+  # Write-Output $certId powienien wyświetlić w konsoli 40-znakowy ciąg liter i cyfr będący thumbprintem certifikatu
+  Write-Output $certId
+  # Krok 2: Użyj zmiennej $certId, aby znaleźć certyfikat w magazynie certyfikatów
   $cert = Get-ChildItem -Path Cert:\CurrentUser\My | Where-Object {$_.Thumbprint -eq $certId}
+  # Opcjonalnie: Wyświetl informacje o znalezionym certyfikacie
+  if ($cert) {
+      Write-Output "Certyfikat znaleziony:"
+      Write-Output $cert
+  } else {
+      Write-Output "Certyfikat z thumbprintem $certId nie został znaleziony."
+  }
   ```
   
   Podajemy folder gdzie ma wyeksportować klucz i dowolne haslo :
