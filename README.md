@@ -29,7 +29,7 @@ ___
 
 <details>
 <summary><h3>Utworzenie certifikatu ssl dla klienta w pythonie</h3></summary>
-  Otwieramy <b>Windows Power shall jako admin</b><br><br>
+  Otwieramy <b>Windows PowerShell jako administrator</b><br><br>
 
   Sprawdzamy klucz certifikatu z visual studio i zapisujemy certifakt do zmiennej:
   ```sh
