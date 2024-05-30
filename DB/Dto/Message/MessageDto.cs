@@ -1,4 +1,6 @@
-﻿namespace DB.Dto.Message
+﻿using DB.Dto.Link;
+
+namespace DB.Dto.Message
 {
     public class MessageDto : BaseDto
     {

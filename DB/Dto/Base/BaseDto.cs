@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DB.Dto.Link;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace DB.Dto.Message
     {
         [Required]
         public int Id { get; set; }
+        public List<LinkDto> Links { get; set; } = new List<LinkDto>();
 
         public BaseDto(){}
         public BaseDto(int id)

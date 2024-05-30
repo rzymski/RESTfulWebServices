@@ -15,7 +15,7 @@ namespace DB.Services.Interfaces
             this.repository = repository;
         }
 
-        public TDto GetByIdDtoObject(int id)
+        public TDto? GetByIdDtoObject(int id)
         {
             var item = repository.GetById(id);
             if (item == null)
@@ -68,7 +68,7 @@ namespace DB.Services.Interfaces
         }
 
         // Metoda do mapowania DTO na encję
-        protected virtual T MapAddEditDtoToEntity(TAddEditDto addEditDto, T entity = null)
+        protected virtual T MapAddEditDtoToEntity(TAddEditDto addEditDto, T? entity = null)
         {
             if (entity == null)
                 entity = Activator.CreateInstance<T>(); // Utwórz nową instancję encji, jeśli nie została dostarczona

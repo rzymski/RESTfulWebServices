@@ -25,7 +25,7 @@ namespace DB.Services
         }
 
         // Nadpisz metodę MapToEntity dla klasy MessageDto
-        protected override Message MapAddEditDtoToEntity(MessageAddDto dto, Message entity)
+        protected override Message MapAddEditDtoToEntity(MessageAddDto dto, Message? entity)
         {
             if (entity == null)
                 entity = new Message(); // Utwórz nową instancję klasy Message, jeśli nie została dostarczona

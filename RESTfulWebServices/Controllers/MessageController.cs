@@ -76,19 +76,20 @@ namespace RESTfulWebServices.Controllers
         }
 
         [HttpGet]
-        public string GetAbsolutePath()
+        public string? GetAbsolutePath()
         {
-            var uri = httpContextAccessor.HttpContext.Request.GetEncodedUrl();
+            var uri = httpContextAccessor.HttpContext?.Request.GetEncodedUrl();
             return uri;
         }
 
         [HttpGet]
-        public string GetUserAgent()
+        public string? GetUserAgent()
         {
-            var userAgent = httpContextAccessor.HttpContext.Request.Headers.UserAgent;
+            var userAgent = httpContextAccessor.HttpContext?.Request.Headers.UserAgent;
             return userAgent;
         }
 
+        // nie działa wraz z HateoasMiddleware
         [HttpGet("{*path}")]
         public IActionResult GetMatrixParams(string path)
         {

@@ -3,7 +3,9 @@ using DB.Repositories;
 using DB.Repositories.Interfaces;
 using DB.Services;
 using DB.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using RESTfulWebServices.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,17 +19,16 @@ builder.Services.AddDbContext<MyDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
 });
 
-
-
 // Dodanie obs³ugi XML
 builder.Services.AddControllers().AddXmlSerializerFormatters();
 
 // Dodanie http context accessor
 builder.Services.AddHttpContextAccessor();
+// Dodanie action context accessor
+builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
 // Add services to the container.
 builder.Services.AddControllers();
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -45,5 +46,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+
+//Middleware do generowania Hateoas
+app.UseMiddleware<HateoasMiddleware>();
 
 app.Run("https://localhost:8080");
